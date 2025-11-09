@@ -1,14 +1,17 @@
-from flask import Flask, render_template, redirect, url_for, flash, request
+from flask import Flask, render_template, redirect, url_for, request
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, Boolean
 import random
 from forms import CreateForm
 from flask_bootstrap import Bootstrap5
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 Bootstrap5(app)
 
 
